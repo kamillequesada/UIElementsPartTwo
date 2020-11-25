@@ -15,29 +15,34 @@ class AlbumsActivity : AppCompatActivity() {
         val riotsImageView = findViewById(R.id.riotsImageView) as ImageView
         riotsImageView.setOnClickListener {
             startActivity(Intent(this, RiotActivity::class.java))
+        }
+        val brandNewImageView = findViewById(R.id.brandNewImageView) as ImageView
+        brandNewImageView.setOnClickListener {
+            startActivity(Intent(this, BrandNewEyesActivity::class.java))
+
 
         }
     }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
+        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+            val inflater = menuInflater
+            inflater.inflate(R.menu.main_menu, menu)
+            return true
+        }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.go_to_albums -> {
-                startActivity(Intent(this, AlbumsActivity::class.java))
-                true
+        override fun onOptionsItemSelected(item: MenuItem): Boolean {
+            return when (item.itemId) {
+                R.id.go_to_albums -> {
+                    startActivity(Intent(this, AlbumsActivity::class.java))
+                    true
+                }
+                R.id.go_to_songs -> {
+                    startActivity(Intent(this, SongsActivity::class.java))
+                    true
+                }
+                R.id.go_to_queue -> {
+                    true
+                }
+                else -> super.onOptionsItemSelected(item)
             }
-            R.id.go_to_songs -> {
-                startActivity(Intent(this, SongsActivity::class.java))
-                true
-            }
-            R.id.go_to_queue -> {
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
         }
     }
-}
